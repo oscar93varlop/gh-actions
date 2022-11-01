@@ -32,7 +32,7 @@ jobs:
       run: terraform validate -no-color
 
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@master
       with:
         role-to-assume: arn:aws:iam::258372532888:role/gitgub-actions-terraform
         aws-region: us-east-1
