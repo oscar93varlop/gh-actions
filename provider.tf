@@ -11,7 +11,7 @@ terraform {
 provider "aws" {
     shared_config_files      = ["/home/ovl93/.aws/config"]
     shared_credentials_files = ["/home/ovl93/.aws/credentials"]
-    profile   = "globery"
+    # profile   = "globery"
   # Configuration options
 
 }
