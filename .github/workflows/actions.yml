@@ -36,7 +36,13 @@ jobs:
     #   with:
     #     role-to-assume: arn:aws:iam::258372532888:role/gitgub-actions-terraform
     #     aws-region: us-east-1
-
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-west-2
+        
     - name: Terraform Apply
       # uses: hashicorp/terraform-github-actions/apply@v0.4.0
       id: apply
