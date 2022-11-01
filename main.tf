@@ -5,15 +5,15 @@
 #     sg-web = module.sg[0].sg-test
 # }
 
-# module "sg" {
-#     count         = 1 
-#     source        = "./modules/sg-module"
-#     vpc_id       = module.networking[0].vpc_id
-#     vpc_cidr_sg  = module.networking[0].vpc_cidr
-#     depends_on = [
-#       module.networking
-#     ]
-# }
+module "sg" {
+    count         = 1 
+    source        = "./modules/sg-module"
+    vpc_id       = module.networking[0].vpc_id
+    vpc_cidr_sg  = module.networking[0].vpc_cidr
+    depends_on = [
+      module.networking
+    ]
+}
 
 module "networking" {
     count         = 1   
