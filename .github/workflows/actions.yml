@@ -31,6 +31,12 @@ jobs:
       id: validate
       run: terraform validate -no-color
 
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        role-to-assume: arn:aws:iam::258372532888:role/gitgub-actions-terraform
+        aws-region: us-east-1
+
     - name: Terraform Apply
       # uses: hashicorp/terraform-github-actions/apply@v0.4.0
       id: apply
