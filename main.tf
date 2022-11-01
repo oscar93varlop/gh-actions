@@ -1,9 +1,9 @@
-# module "server" {
-#     count         = 1
-#     source        = "./modules/ec2-module"
-#     subnet_public_ec2 = module.networking[0].subnet_public
-#     sg-web = module.sg[0].sg-test
-# }
+module "server" {
+    count         = 1
+    source        = "./modules/ec2-module"
+    subnet_public_ec2 = module.networking[0].subnet_public
+    sg-web = module.sg[0].sg-test
+}
 
 module "sg" {
     count         = 1 
