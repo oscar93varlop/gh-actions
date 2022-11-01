@@ -27,7 +27,9 @@ jobs:
         AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     - name: Terraform Validate
-      uses: hashicorp/terraform-github-actions/validate@v0.3.7
+#      uses: hashicorp/terraform-github-actions/validate@v0.3.7
+      id: validate
+      run: terraform validate -no-color
 
     - name: Terraform Apply
       uses: hashicorp/terraform-github-actions/apply@v0.4.0
