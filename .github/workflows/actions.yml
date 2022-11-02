@@ -11,10 +11,12 @@ on:
       - master
 
 jobs:
-  tf_fmt:
-    name: Deploy Site
-    runs-on: ubuntu-latest
-    steps:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    tf_fmt:
+      name: Deploy Site
+      runs-on: ubuntu-latest
+      steps:
 
     - name: Checkout Repo
       uses: actions/checkout@v1
