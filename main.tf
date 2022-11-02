@@ -5,6 +5,9 @@
 #     sg-web = module.sg[0].sg-test
 # }
 
+
+# este es solo un ejemplo para hacer un merge 
+
 module "sg" {
     count         = 1 
     source        = "./modules/sg-module"
@@ -14,6 +17,13 @@ module "sg" {
       module.networking
     ]
 }
+
+data "aws_key_pair" "example" {
+  key_name           = "test"
+  include_public_key = true
+
+}
+
 
 module "networking" {
     count         = 1   
