@@ -38,10 +38,10 @@ module "networking" {
     source        = "./modules/networking-module"
     # some_variable = some_value
 }
-# module "rds" {
+module "rds" {
     
-#     count         = 1    
-#     source        = "./modules/rds-module"
-#     list_subnet   =  tolist([module.networking[0].subnet_private-1, module.networking[0].subnet_private-2])
-#     # some_variable = some_value
-# }
+    count         = 1    
+    source        = "./modules/rds-module"
+    list_subnet   =  tolist([module.networking[0].subnet_private-1, module.networking[0].subnet_private-2])
+    # some_variable = some_value
+}
