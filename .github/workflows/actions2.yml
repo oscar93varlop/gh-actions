@@ -14,33 +14,33 @@ jobs:
 # if_merged:
 #   if: github.event.pull_request.merged == true
 #    tf_fmt:
-  name: Revisando Infra
-  runs-on: ubuntu-latest
-  steps:
+  Revisando Infra:
+    runs-on: ubuntu-latest
+    steps:
 
-  - name: Checkout Repo
-    uses: actions/checkout@v1
-  - name: Setup Terraform
-    uses: hashicorp/setup-terraform@v1
+    - name: Checkout Repo
+      uses: actions/checkout@v1
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
 
-  - name: Terraform Init
-#      uses: hashicorp/terraform-github-actions/init@v0.4.0
-#      uses: hashicorp/terraform-github-actions/init@v1
-    run: terraform init
-    env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        TF_ACTION_WORKING_DIR: 'gh-actions:'
-      AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: Terraform Init
+    #      uses: hashicorp/terraform-github-actions/init@v0.4.0
+    #      uses: hashicorp/terraform-github-actions/init@v1
+      run: terraform init
+      env:
+    #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #        TF_ACTION_WORKING_DIR: 'gh-actions:'
+        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-  - name: Terraform Validate
-#      uses: hashicorp/terraform-github-actions/validate@v0.3.7
-    id: validate
-    run: terraform validate -no-color
-  - name: Terraform Plan
-    id: plan
-    run: terraform plan -no-color
-    continue-on-error: true
+    - name: Terraform Validate
+    #      uses: hashicorp/terraform-github-actions/validate@v0.3.7
+      id: validate
+      run: terraform validate -no-color
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+      continue-on-error: true
 
     # - name: Configure AWS Credentials
     #   uses: aws-actions/configure-aws-credentials@master
