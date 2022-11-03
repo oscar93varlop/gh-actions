@@ -11,8 +11,8 @@ on:
   #     - master
 
 jobs:
-  # if_merged:
-  #   if: github.event.pull_request.merged == true
+# if_merged:
+#   if: github.event.pull_request.merged == true
 #    tf_fmt:
   name: Revisando Infra
   runs-on: ubuntu-latest
