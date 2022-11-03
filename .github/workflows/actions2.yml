@@ -3,7 +3,8 @@ name: Revisando Infra
 on:
   push:
     branches:
-      - 'feat/**'
+#      - 'feat/**'
+      - feat/cicd-gh
   # pull_request:
   #   types:
   #    - closed
