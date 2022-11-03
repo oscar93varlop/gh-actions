@@ -1,0 +1,50 @@
+name: Revisando Infra
+
+on:
+  push:
+    branches:
+#      - 'feat/**'
+      - feat/cicd-gh
+  # pull_request:
+  #   types:
+  #    - closed
+  #   branches:
+  #     - master
+
+jobs:
+# if_merged:
+#   if: github.event.pull_request.merged == true
+#    tf_fmt:
+  Revisando_Infra:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout Repo
+      uses: actions/checkout@v1
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v1
+
+    - name: Terraform Init
+    #      uses: hashicorp/terraform-github-actions/init@v0.4.0
+    #      uses: hashicorp/terraform-github-actions/init@v1
+      run: terraform init
+      env:
+    #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #        TF_ACTION_WORKING_DIR: 'gh-actions:'
+        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    - name: Terraform Validate
+    #      uses: hashicorp/terraform-github-actions/validate@v0.3.7
+      id: validate
+      run: terraform validate -no-color
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+      continue-on-error: true
