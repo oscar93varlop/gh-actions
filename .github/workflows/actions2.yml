@@ -14,7 +14,7 @@ jobs:
   # if_merged:
   #   if: github.event.pull_request.merged == true
 #    tf_fmt:
-  name: Terrafom Validete
+  name: Revisando Infra
   runs-on: ubuntu-latest
   steps:
 
