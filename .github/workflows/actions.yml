@@ -53,7 +53,7 @@ jobs:
     - name: Terraform Apply
       # uses: hashicorp/terraform-github-actions/apply@v0.4.0
       id: apply
-      run: terraform apply -auto-approve
+      run: terraform destroy -auto-approve
       env:
         # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # TF_ACTION_WORKING_DIR: 'terraform'
