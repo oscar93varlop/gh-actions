@@ -14,13 +14,14 @@ resource "aws_instance" "web" {
   associate_public_ip_address = true
   # subnet_id = aws_subnet.sn_public.id
   vpc_security_group_ids = [var.sg-web]
-  key_name = "ac_ups_terraform_202206"
+  key_name = "Bastion-Alarma"
   # user_data = "${file("/modules/ec2-module/userdata.sh")}"
   user_data =   <<EOF
     #!/bin/bash
     sudo yum update
     sudo yum install nc -y 
     sudo yum install telnet -y 
+    sudo yum install mysql
 
 EOF
    tags = {

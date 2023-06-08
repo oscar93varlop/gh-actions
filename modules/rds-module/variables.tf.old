@@ -1,6 +1,3 @@
-variable "name_cluster" {
-  default = "test-backtrack"
-}
 variable "name_user_db" {
   default = "testg"
 }
@@ -22,7 +19,7 @@ variable "storage_db" {
 }
 
 variable "type_db" {
-    default =  "db.r5.2xlarge"
+    default =  "db.t2.micro"
 }
 
 variable "list_subnet" {

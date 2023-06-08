@@ -17,10 +17,10 @@ provider "aws" {
 
 }
 
-terraform {
-  backend "s3" {
-    bucket         = "bucket-gh-actions"
-    key            = "terraform.tfstate"
-    region         = "us-east-1"
-  }
-}
+# terraform {
+#   backend "s3" {
+#     bucket         = "bucket-gh-actions"
+#     key            = "terraform.tfstate"
+#     region         = "us-east-1"
+#   }
+# }

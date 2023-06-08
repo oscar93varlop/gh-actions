@@ -1,1 +1,1 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"networking","Source":"./modules/networking-module","Dir":"modules/networking-module"}]}
+{"Modules":[{"Key":"server","Source":"./modules/ec2-module","Dir":"modules/ec2-module"},{"Key":"sg","Source":"./modules/sg-module","Dir":"modules/sg-module"},{"Key":"","Source":"","Dir":"."},{"Key":"networking","Source":"./modules/networking-module","Dir":"modules/networking-module"},{"Key":"rds","Source":"./modules/rds-module","Dir":"modules/rds-module"}]}
